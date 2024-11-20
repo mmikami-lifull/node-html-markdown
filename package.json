@@ -21,7 +21,6 @@
     "README.md",
     "CHANGELOG.md",
     "dist",
-    "tsconfig.base",
     "tsconfig.json",
     "src"
   ],
