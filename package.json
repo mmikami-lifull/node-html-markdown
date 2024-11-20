@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "compile": "tsc",
+    "compile": "tsc --project $(pwd)/tsconfig.json",
     "build": "yarn run clean && yarn run compile",
     "clean": "npx -y rimraf coverage dist **/*.tsbuildinfo",
     "------------- ": "-------------",
@@ -14,12 +14,16 @@
     "test": "jest",
     "test:coverage": "jest --collect-coverage",
     "-------------  ": "-------------",
-    "prepare": "ts-patch patch tsc --silent && cd benchmark && yarn install"
+    "prepare": "ts-patch patch tsc --silent && cd benchmark && yarn install",
+    "postinstall": "npm run compile"
   },
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "dist"
+    "dist",
+    "tsconfig.base",
+    "tsconfig.json",
+    "src"
   ],
   "keywords": [
     "html",
