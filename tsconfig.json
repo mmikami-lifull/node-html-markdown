@@ -1,8 +1,24 @@
 {
-  "extends": "./tsconfig.base",
   "include": [ "src" ],
 
   "compilerOptions": {
+    "noErrorTruncation": false,
+    "incremental": true,
+
+    "lib": [ "esnext", "dom" ],
+    "target": "ES2017",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+
+    "strict": true,
+    "declaration": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "preserveSymlinks": true,
     "rootDir": "src",
     "outDir": "dist",
     "sourceMap": true,
