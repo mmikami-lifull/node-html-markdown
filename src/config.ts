@@ -295,6 +295,14 @@ export const defaultTranslators: TranslatorConfigObject = {
       recurse: false
     }
   },
+
+  /** Input */
+  'input': ({ node }) => {
+    const type = node.getAttribute('type') || '';
+    if (type === 'checkbox' || type === 'radio') return { content: `[ ]`, recurse: false };
+    if (type === 'text') return { content: node.getAttribute("value") || "", recurse: false };
+    return { ignore: true };
+  }
 }
 
 export const tableTranslatorConfig: TranslatorConfigObject = {
@@ -342,7 +350,8 @@ export const tableCellTranslatorConfig: TranslatorConfigObject = {
   'strong,b': defaultTranslators['strong,b'],
   'del,s,strike': defaultTranslators['del,s,strike'],
   'em,i': defaultTranslators['em,i'],
-  'img': defaultTranslators['img']
+  'img': defaultTranslators['img'],
+  'input': defaultTranslators['input'],
 }
 
 export const defaultCodeBlockTranslators: TranslatorConfigObject = {
